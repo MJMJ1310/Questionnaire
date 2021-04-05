@@ -1,0 +1,8 @@
+<div class="layouts">
+    <div class="p-2 layout-border row" *ngFor="let layout of layouts; let index = index">
+        <span (click)="setActiveLayout(index)" [ngClass]="{'active-layout': index===activeLayout}"
+         class="col-md-3 layout-icon p-2 far fa-check-circle"></span>
+        <span class="col-md-6 p-2">{{layout.name}}</span>
+        <span (click)="cloneLayout(index)" class="col-md-3 layout-icon p-2 far fa-clone"></span>
+    </div>
+</div>

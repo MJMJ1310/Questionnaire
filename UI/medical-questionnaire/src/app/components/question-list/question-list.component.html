@@ -1,0 +1,30 @@
+<div class="questions">
+    <div class="button-container py-3">
+        <button (click)="addQuestion()" class="add-button float-right">Add Question</button>
+        <button (click)="saveLayout()" class="save-layout-button float-right mr-2">Save Layout</button>
+    </div>
+    <div draggable="true"
+    (dragstart)="onDragStart(index)" (dragover)="onDragOver(index)"
+    (dragend)="onDragEnd()" class="pl-3 py-2 row" *ngFor="let question of questions; let index = index">
+        <span class="col-md-2">{{index + 1}}</span>
+        <span *ngIf="editIndex !== index; else contentTextArea" class="col-md-6">{{question.content}}</span>
+        <ng-template #contentTextArea>
+            <span class="col-md-6">
+                <textarea [(ngModel)]="question.content" class="question-text-area" rows="1"></textarea>
+            </span>
+        </ng-template>
+        <span *ngIf="editIndex !== index; else typeDropdown" class="col-md-2">{{question.type}}</span>
+        <ng-template #typeDropdown>
+            <span class="col-md-2">
+                <select [(ngModel)]="question.type" class="type-dropdown">
+                    <option value="TextBox">Text Box</option>
+                    <option value="Checkbox">Checkbox</option>
+                    <option value="RadioButton">RadioButton</option>
+                    <option value="Slider">Slider</option>
+                </select>
+            </span>
+        </ng-template>
+        <span (click)="editQuestion(index)" [ngClass]="{'editted-row': editIndex === index}" class="col-md-1 fas fa-pen"></span>
+        <span (click)="deleteQuestion(index)" class="col-md-1 fas fa-times"></span>
+    </div>
+</div>

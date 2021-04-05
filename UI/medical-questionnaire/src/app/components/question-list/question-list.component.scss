@@ -1,0 +1,23 @@
+.button-container {
+    overflow: auto;
+    .add-button {
+        border-radius: 4px;
+        border-style: double;
+        font-weight: 600;
+        background-color: #b877c2;
+    }
+    .save-layout-button {
+        border-radius: 4px;
+        font-weight: 600;
+    }
+}
+.question-text-area {
+    resize: none;
+    width: 100%;
+}
+.type-dropdown {
+    height: 30px;
+}
+.editted-row {
+    color: green;
+}

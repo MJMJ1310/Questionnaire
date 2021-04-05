@@ -1,0 +1,11 @@
+<div class="header">Questionnaire</div>
+<div class="container-fluid">
+  <div class="row layout-panel">
+    <div class="col-md-3 col-sm-4 px-0 right-border">
+      <app-layouts-panel [layouts]="layouts"></app-layouts-panel>
+    </div>
+    <div class="col-md-9 col-sm-8">
+      <app-question-list [isDefault]="isDefaultActive" [layout]="selectedLayout"></app-question-list>
+    </div>
+  </div>
+</div>
